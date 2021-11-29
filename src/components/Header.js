@@ -1,3 +1,4 @@
+// Imports.
 import React, { useState } from 'react';
 import {
     Navbar,
@@ -10,11 +11,18 @@ import {
 } from "reactstrap"
 import { Link } from 'react-router-dom'
 
+// Componente Header retornado o Menu do Cabecalho.
 const Header = () => {
+
+    // Estado com open que seta se o Toggler aparece ou nao false/true.
     const [open, setOpen] = useState(false)
+
+    // funcao que altera de False -> True e de True -> False.
     const toggle = () => {
         setOpen(!open)
     }
+
+    // Retorna o Cabeçalho.
     return (
         <Navbar color="light" light expand="md">
             <NavbarBrand tag={Link} to="/">Minhas Séries</NavbarBrand>
