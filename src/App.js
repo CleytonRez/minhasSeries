@@ -6,16 +6,14 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
+import Generos from './components/Generos';
 
 // Componente que retorna um Titulo "Home".
 const Home = () => {
   return <h1>Home</h1>
 }
 
-// Componente que retorna um Titulo "Genero".
-const Generos = () => {
-  return <h1>Generos</h1>
-}
+Generos()
 
 axios.defaults.baseURL = 'https://localhost:3002/';
 axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
