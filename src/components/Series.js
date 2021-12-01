@@ -4,19 +4,19 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 
 // Componente que retorna um Titulo "Genero".
-const Generos = () => {
+const Series = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        axios.get('/api/genres')
+        axios.get('/api/series')
             .then(res => {
                 setData(res.data.data)
             })
     }, [])
 
-    // Funcao do botão que deleta um Genero.
-    const deleteGenero = id => {
+    // Funcao do botão que deleta uma Serie.
+    const deleteSerie = id => {
         axios
-            .delete('api/genres/' + id)
+            .delete('api/series/' + id)
             .then(res => {
                 const filtrado = data.filter(item => item.id !== id)
                 setData(filtrado)
@@ -31,8 +31,8 @@ const Generos = () => {
                 <th scope='row'>{record.id}</th>
                 <td>{record.name}</td>
                 <td>
-                    <button className='btn btn-danger' onClick={() => deleteGenero(record.id)}>Remover</button>
-                    <Link to={'/generos/' + record.id} className='btn btn-warning'>Editar</Link>
+                    <button className='btn btn-danger' onClick={() => deleteSerie(record.id)}>Remover</button>
+                    <Link to={'/series/' + record.id} className='btn btn-warning'>Editar</Link>
                 </td>
             </tr>
         )
@@ -42,23 +42,23 @@ const Generos = () => {
     if (data.length === 0) {
         return (
             <div className='container'>
-                <h1>Gênero</h1>
+                <h1>Séries</h1>
                 <br />
-                <div><Link to='/generos/novo' className='btn btn-primary'>Novo Gênero</Link></div>
+                <div><Link to='/series/novo' className='btn btn-primary'>Nova Série</Link></div>
                 <br />
-                <div className='aler alert-wairning' role='alert'>
-                    Você não possui genêros criados.
+                <div className='aler alert-warning' role='alert'>
+                    Você não possui Séries criadas.
                 </div>
             </div>
         )
     }
 
-    // Retorna o Menu com a Tabela de Generos.
+    // Retorna o Menu com Tabela das Séries.
     return (
         <div className="container">
-            <h1>Generos</h1>
+            <h1>Séries</h1>
             <br />
-            <div><Link to='/generos/novo' className='btn btn-primary'>Novo Gênero</Link></div>
+            <div><Link to='/series/novo' className='btn btn-primary'>Nova Série</Link></div>
             <br />
             <table className='table table-dark'>
                 <thead>
@@ -76,4 +76,4 @@ const Generos = () => {
     )
 }
 
-export default Generos
+export default Series

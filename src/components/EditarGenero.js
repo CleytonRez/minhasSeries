@@ -1,11 +1,14 @@
+// Imports
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
 
+// Componente que Edita o Genero.
 const EditarGenero = ({ match }) => {
     const [name, setName] = useState('')
     const [success, setSuccess] = useState(false)
 
+    // Efeito que busca o genero pelo ID para Editar..
     useEffect(() => {
         axios
             .get('/api/genres/' + match.params.id)
@@ -14,9 +17,12 @@ const EditarGenero = ({ match }) => {
             })
     }, [match.params.id])
 
+    // Funcao que Seta as informacoes no Estado.
     const onChange = evt => {
         setName(evt.target.value)
     }
+
+    // Componente que Salva o Genero.
     const save = () => {
         axios.put('/api/genres/' + match.params.id, {
             name
@@ -26,9 +32,12 @@ const EditarGenero = ({ match }) => {
             })
     }
 
+    // Se o Estado success for True ele retorna a pagina da Lista.
     if (success) {
         return <Redirect to='/generos' />
     }
+
+    // Retorna o Menu de Editar Genero.
     return (
         <div className='container'>
             <h1>Editar Gênero</h1>

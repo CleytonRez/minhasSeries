@@ -1,12 +1,14 @@
 {
   "series": {
-    "1": {
-      "name": "La casa de papel",
-      "status": "WATCHED",
-      "genre_id": 1,
-      "comments": "",
+    "1638386196306": {
+      "name": "La Casa de Papel",
       "poster": "//image.tmdb.org/t/p/original/yVUAfbrP5HDJugXraB7KQS0yz6Z.jpg",
-      "background": "//image.tmdb.org/t/p/original/piuRhGiQBYWgW668eSNJ2ug5uAO.jpg"
+      "background": "//image.tmdb.org/t/p/original/gFZriCkpJYsApPZEF3jhxL4yLzG.jpg"
+    },
+    "1638386214065": {
+      "name": "Supernatural",
+      "poster": "//image.tmdb.org/t/p/original/ovFzkkKknAo2SbM2DfOabxRvzmy.jpg",
+      "background": "//image.tmdb.org/t/p/original/nVRyd8hlg0ZLxBn9RaI7mUMQLnz.jpg"
     }
   },
   "genres": {
@@ -18,9 +20,6 @@
     },
     "1638380718872": {
       "name": "Terror"
-    },
-    "1638381233218": {
-      "name": "Romance"
     }
   },
   "count": 0
