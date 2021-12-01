@@ -1,24 +1,19 @@
 // Imports
 import React, { useState, useEffect } from 'react';
 import Header from "./components/Header"
-import axios, { AUTH_TOKEN } from 'axios'
+import axios from 'axios'
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
 import Generos from './components/Generos';
+import NovoGenero from './components/NovoGenero';
+import EditarGenero from './components/EditarGenero';
 
 // Componente que retorna um Titulo "Home".
 const Home = () => {
   return <h1>Home</h1>
 }
-
-Generos()
-
-axios.defaults.baseURL = 'https://localhost:3002/';
-axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-
 // Componente Principal.
 function App() {
 
@@ -38,7 +33,9 @@ function App() {
       <div>
         <Header />
         <Route path="/" exact component={Home} />
-        <Route path="/generos" component={Generos} />
+        <Route path="/generos/:id" exact component={EditarGenero} />
+        <Route path="/generos/novo" exact component={NovoGenero} />
+        <Route path="/generos" exact component={Generos} />
         <pre>{JSON.stringify(data)}</pre>
       </div>
     </Router>
