@@ -1,25 +1,27 @@
 {
   "series": {
-    "1638386196306": {
-      "name": "La Casa de Papel",
-      "poster": "//image.tmdb.org/t/p/original/yVUAfbrP5HDJugXraB7KQS0yz6Z.jpg",
-      "background": "//image.tmdb.org/t/p/original/gFZriCkpJYsApPZEF3jhxL4yLzG.jpg"
-    },
     "1638386214065": {
       "name": "Supernatural",
       "poster": "//image.tmdb.org/t/p/original/ovFzkkKknAo2SbM2DfOabxRvzmy.jpg",
       "background": "//image.tmdb.org/t/p/original/nVRyd8hlg0ZLxBn9RaI7mUMQLnz.jpg"
+    },
+    "1638564908107": {
+      "name": "La Casa de Papel",
+      "status": "PARA_ASSISTIR",
+      "genre_id": 1638564475521,
+      "poster": "//image.tmdb.org/t/p/original/qUmlmYWx3WndM01DHOTrmeiklVW.jpg",
+      "background": "//image.tmdb.org/t/p/original/gFZriCkpJYsApPZEF3jhxL4yLzG.jpg"
     }
   },
   "genres": {
-    "1": {
-      "name": "Ação"
-    },
-    "2": {
-      "name": "Comédia"
-    },
-    "1638380718872": {
+    "1638564468824": {
       "name": "Terror"
+    },
+    "1638564471504": {
+      "name": "Aventura"
+    },
+    "1638564475521": {
+      "name": "Ação"
     }
   },
   "count": 0
