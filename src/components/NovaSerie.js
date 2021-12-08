@@ -1,5 +1,6 @@
 // Imports
 import React, { useState } from "react";
+import './NovaSerie.css'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
 
@@ -36,17 +37,19 @@ const NovaSerie = () => {
 
     // Retorna A pagina para Adicionar uma Nova Série.
     return (
-        <div className='container'>
-            <h1>Nova Série</h1>
-            <form>
-                <div className='form-group'>
-                    <label htmlFor='name'>Nome</label>
-                    <input type='text' value={name} onChange={onChange} className='form-control' id='name' placeholder='Nome da Série' />
-                </div>
-                <br />
-                <button type='button' onClick={save} className='btn btn-primary'>Salvar</button>
-            </form>
-        </div >
+        <div className='novaSerie'>
+            <div className='container'>
+                <h1>Nova Série</h1>
+                <form>
+                    <div className='form-group'>
+                        <label htmlFor='name'>Nome</label>
+                        <input type='text' value={name} onChange={onChange} className='form-control' id='name' placeholder='Nome da Série' />
+                    </div>
+                    <br />
+                    <button type='button' onClick={save} className='btn btn-primary'>Salvar</button>
+                </form>
+            </div >
+        </div>
     )
 }
 

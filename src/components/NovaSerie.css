@@ -1,11 +1,7 @@
-.home{
-    text-align: center;
+.novaSerie{
     margin: 40px;
     padding: 10px;
     border-radius: 10px;
     background-color: rgb(243, 243, 243);
     color: rgb(77, 77, 77);
-}
-.fontColor{
-    color: black;
 }

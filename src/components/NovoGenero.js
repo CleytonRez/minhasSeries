@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './NovoGenero.css'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
 
@@ -35,16 +36,20 @@ const NovoGenero = () => {
 
     // Retorna A pagina para Adicionar um Novo Genero.
     return (
-        <div className='container'>
-            <h1>Novo Gênero</h1>
-            <form>
-                <div className='form-group'>
-                    <label htmlFor='name'>Nome</label>
-                    <input type='text' value={name} onChange={onChange} className='form-control' id='name' placeholder='Nome do Gênero' />
-                </div>
-                <button type='button' onClick={save} className='btn btn-primary'>Salvar</button>
-            </form>
-        </div >
+        <div className='novoGenero'>
+            <div className='container'>
+                <h1>Novo Gênero</h1>
+                <br/>
+                <form>
+                    <div className='form-group'>
+                        <label htmlFor='name'>Nome</label>
+                        <input type='text' value={name} onChange={onChange} className='form-control' id='name' placeholder='Nome do Gênero' />
+                    </div>
+                    <br/>
+                    <button type='button' onClick={save} className='btn btn-primary'>Salvar</button>
+                </form>
+            </div >
+        </div>
     )
 }
 

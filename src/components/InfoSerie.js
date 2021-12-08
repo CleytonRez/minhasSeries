@@ -1,5 +1,6 @@
 // Imports.
 import React, { useState, useEffect } from "react";
+import './InfoSerie.css'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
 import { Badge } from "reactstrap";
@@ -8,18 +9,23 @@ import { Badge } from "reactstrap";
 const InfoSerie = ({ match }) => {
 
     // Estado contendo o Nome da Serie.
-    const [form, setForm] = useState({})
+    const [form, setForm] = useState({
+        name: ''
+    })
 
     // Estado que Faz o botao Setado leve a pagina da Lista. Muda de False -> True e True -> False.
     const [success, setSuccess] = useState(false)
 
-    const [mode, setMode] = useState('EDIT')
+    const [mode, setMode] = useState('INFO')
 
     // Estado contendo as informacoes da Serie.
     const [data, setData] = useState({})
     console.log(data)
+
+    // Estado contendo o Genero Selecionado.
     const [genres, setGenres] = useState([])
 
+    // Estado contendo o Id do Genero Selecionado.
     const [genreId, setGenreId] = useState('')
 
     // Efeito que Permite Editar as Infos da Serie.
@@ -33,6 +39,7 @@ const InfoSerie = ({ match }) => {
 
     }, [match.params.id])
 
+    // Efeito que Permite Editar o Genero da Série.
     useEffect(() => {
         axios
             .get('/api/genres')
@@ -46,6 +53,7 @@ const InfoSerie = ({ match }) => {
             })
 
     }, [data])
+
     // Custom header
     const masterHeader = {
         height: '50vh',
@@ -57,6 +65,10 @@ const InfoSerie = ({ match }) => {
     }
 
 
+    // OnChange do Genero. Seta o Id do Genero Selecionado.
+    const onChangeGenre = evt => {
+        setGenreId(evt.target.value)
+    }
     // Funcao  que Captura as Letras no Input.
     const onChange = field => evt => {
 
@@ -66,6 +78,7 @@ const InfoSerie = ({ match }) => {
         })
     }
 
+    // Funcao que seta o Status da Série.
     const seleciona = value => () => {
         setForm({
             ...form,
@@ -80,7 +93,7 @@ const InfoSerie = ({ match }) => {
         // .put que salva na API o Nome.
         axios.put('/api/series/' + match.params.id, {
             ...form,
-            //genre_id: genreId
+            genre_id: genreId
         })
             .then(res => {
                 setSuccess(true)
@@ -95,7 +108,7 @@ const InfoSerie = ({ match }) => {
     // Retorna A pagina com as Infos da Serie.
     return (
 
-        <div>
+        <div className='editSerie'>
             <header style={masterHeader}>
                 <div className='h-100' style={{ background: 'rgba(0,0,0,0.7)' }}>
                     <div className='h-100 container'>
@@ -116,18 +129,19 @@ const InfoSerie = ({ match }) => {
                     </div>
                 </div>
             </header>
-
-            <div>
+            <br/>
+            <div className='container'>
                 <button className='btn btn-primary' onClick={() => setMode('EDIT')}>Editar</button>
             </div>
 
             {
                 mode === 'EDIT' &&
                 <div className='container'>
-                    <h1>Nova Série</h1>
-                    <pre>{JSON.stringify(form)}</pre>
+                    <br/>
+                    <h1>Editar Série:</h1>
                     <button className='btn btn-primary' onClick={() => setMode('INFO')}>Cancelar Edição</button>
                     <form>
+                    <br/>
                         <div className='form-group'>
                             <label htmlFor='name'>Nome</label>
                             <input type='text' value={form.name} onChange={onChange('name')} className='form-control' id='name' placeholder='Nome da Série' />
@@ -135,23 +149,24 @@ const InfoSerie = ({ match }) => {
                         <br />
                         <div className='form-group'>
                             <label htmlFor='name'>Comentarios</label>
-                            <input type='text' value={form.comments} onChange={onChange('comments')} className='form-control' id='name' placeholder='Nome da Série' />
+                            <input type='text' value={form.comments} onChange={onChange('comments')} className='form-control' id='name' placeholder='Comentario Sobre a Série' />
                         </div>
-
+                        <br/>
                         <div className='form-group'>
                             <label htmlFor='name'>Gênero</label>
-                            <select class="form-control" onChange={onChange('genre_id')}>
-                                {genres.map(genre => <option key={genre.id} value={genre.id} select={genre.id === form.genre}>{genre.name}</option>)}
+                            <select class="form-control" onChange={onChangeGenre} value={genreId}>
+                                {genres.map(genre => <option key={genre.id} value={genre.id}>{genre.name}</option>)}
                             </select>
+                            <br/>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" type="radio" name="status" id="assistido" value="ASSISTIDO" onClick={seleciona('ASSISTIDO')} />
+                            <input className="form-check-input" type="radio" checked={form.status === 'ASSISTIDO'} name="status" id="assistido" value="ASSISTIDO" onChange={seleciona('ASSISTIDO')} />
                             <label className="form-check-label" htmlFor="assistido">
                                 Assistido
                             </label>
                         </div>
                         <div className="form-check">
-                            <input className="form-check-input" type="radio" name="status" id="paraAssistir" value="PARA_ASSISTIR" onClick={seleciona('PARA_ASSISTIR')} />
+                            <input className="form-check-input" type="radio" checked={form.status === "PARA_ASSISTIR"} name="status" id="paraAssistir" value="PARA_ASSISTIR" onChange={seleciona('PARA_ASSISTIR')} />
                             <label className="form-check-label" htmlFor="paraAssistir">
                                 Para Assistir
                             </label>

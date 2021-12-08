@@ -1,12 +1,18 @@
 // Imports
 import React, { useState, useEffect } from 'react';
 import Header from "./components/Header"
+import './App.css'
 import {
-
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  Link
 } from 'react-router-dom'
+
+import {
+  NavButton,
+  NavLink
+} from "reactstrap"
 
 import Generos from './components/Generos';
 import NovoGenero from './components/NovoGenero';
@@ -18,7 +24,17 @@ import InfoSerie from './components/InfoSerie';
 
 // Componente que retorna um Titulo "Home".
 const Home = () => {
-  return <h1>Home</h1>
+  return ( 
+    <div className='home'>
+      <h1>Home</h1>
+      <br/>
+        <NavLink tag={Link} to="/series" className='btn btn-warning'><span className='fontColor'>Séries</span></NavLink>
+        <br/>
+        <NavLink tag={Link} to="/generos" className='btn btn-danger'><span className='fontColor'>Genêros</span></NavLink>
+
+
+    </div>
+  )
 }
 
 

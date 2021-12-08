@@ -2,26 +2,40 @@
   "series": {
     "1638386214065": {
       "name": "Supernatural",
+      "status": "ASSISTIDO",
+      "genre_id": null,
       "poster": "//image.tmdb.org/t/p/original/ovFzkkKknAo2SbM2DfOabxRvzmy.jpg",
       "background": "//image.tmdb.org/t/p/original/nVRyd8hlg0ZLxBn9RaI7mUMQLnz.jpg"
     },
     "1638564908107": {
       "name": "La Casa de Papel",
-      "status": "PARA_ASSISTIR",
-      "genre_id": 1638564475521,
+      "status": "ASSISTIDO",
+      "genre_id": 1638564471504,
       "poster": "//image.tmdb.org/t/p/original/qUmlmYWx3WndM01DHOTrmeiklVW.jpg",
       "background": "//image.tmdb.org/t/p/original/gFZriCkpJYsApPZEF3jhxL4yLzG.jpg"
+    },
+    "1638986640640": {
+      "name": "Alice",
+      "status": "PARA_ASSISTIR",
+      "genre_id": 1638564471504,
+      "comments": "Fantasia",
+      "poster": "//image.tmdb.org/t/p/original/mxcgH748dwHXui80dLLHSwtL41N.jpg",
+      "background": "//image.tmdb.org/t/p/original/74n5BRb5YGyEiMS4pG69Ow6FKyS.jpg"
+    },
+    "1638988550035": {
+      "name": "Halo",
+      "status": "PARA_ASSISTIR",
+      "genre_id": null,
+      "poster": "//image.tmdb.org/t/p/original/cO3iAp2pPNdWE9eqS4pTEY5HghY.jpg",
+      "background": "//image.tmdb.org/t/p/original/zOOKJyRIcjPC1S8xmNEgy2luAXi.jpg"
     }
   },
   "genres": {
     "1638564468824": {
-      "name": "Terror"
+      "name": "Ação"
     },
     "1638564471504": {
       "name": "Aventura"
-    },
-    "1638564475521": {
-      "name": "Ação"
     }
   },
   "count": 0
